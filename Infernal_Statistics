@@ -1,0 +1,63 @@
+Infernal Statistics:
+
+1.)   m,b=np.polyfit(d1['Date_numeric'], d1['Population age 18-64'],1)
+      _=plt.plot(d1['Date_numeric'], m*d1['Date_numeric']+b, color='m', linestyle='dashed')
+      
+      m,b=np.polyfit(d2['Date_numeric'], d2['Population age 18-64'],1)
+      _=plt.plot(d2['Date_numeric'], m*d2['Date_numeric']+b, color='m', linestyle='dashed')
+      
+      m,b=np.polyfit(d3['Date_numeric'], d3['Population age 18-64'],1)
+      _=plt.plot(d3['Date_numeric'], m*d3['Date_numeric']+b, color='m', linestyle='dashed')
+      
+      m,b=np.polyfit(d4['Date_numeric'], d4['Population age 18-64'],1)
+      _=plt.plot(d4['Date_numeric'], m*d4['Date_numeric']+b, color='m', linestyle='dashed')
+      
+      m,b=np.polyfit(d5['Date_numeric'], d5['Population age 18-64'],1)
+      _=plt.plot(d5['Date_numeric'], m*d5['Date_numeric']+b, color='m', linestyle='dashed')
+      
+      m,b=np.polyfit(d6['Date_numeric'], d6['Population age 18-64'],1)
+      _=plt.plot(d6['Date_numeric'], m*d6['Date_numeric']+b, color='m', linestyle='dashed')
+
+      m,b=np.polyfit(d7['Date_numeric'], d7['Population age 18-64'],1)
+      _=plt.plot(d7['Date_numeric'], m*d7['Date_numeric']+b, color='m', linestyle='dashed')
+      
+      m,b=np.polyfit(d8['Date_numeric'], d8['Population age 18-64'],1)
+      _=plt.plot(d8['Date_numeric'], m*d8['Date_numeric']+b, color='m', linestyle='dashed')
+      
+      m,b=np.polyfit(d9['Date_numeric'], d9['Population age 18-64'],1)
+      _=plt.plot(d9['Date_numeric'], m*d9['Date_numeric']+b, color='m', linestyle='dashed')
+      
+      m,b=np.polyfit(d10['Date_numeric'], d10['Population age 18-64'],1)
+      _=plt.plot(d10['Date_numeric'], m*d10['Date_numeric']+b, color='m', linestyle='dashed')
+plotted linear regression lines of populations grouped by region.
+
+2.)   corrs=pd.concat(d_list_pop, axis=1)
+      corrs.columns=['ATL', 'BOS', 'CHI', 'DAL', 'DEN', 'KCM', 'NYC', 'PHL', 'SEA', 'SFO']
+      corrs=corrs.corr()
+      sns.set()
+      sns.heatmap(corrs, cmap='coolwarm')
+Created a heatmap of the regions to compare corelations between populations.
+
+3.)   def line_regress_plot(x,y,tit):
+         plt.plot(x,y)
+         plt.title(tit)
+         m,b=np.polyfit(x, y,1)
+         _=plt.plot(x, m*x+b, color='m', linestyle='dashed')
+Created a function to plot data with a linear regression line.  This function was used over 160 times throughout this project.
+
+4.)    corrs=pd.concat(d_list_precent, axis=1)
+       corrs.columns=['ATL', 'BOS', 'CHI', 'DAL', 'DEN', 'KCM', 'NYC', 'PHL', 'SEA', 'SFO']
+       corrs=corrs.corr()
+       sns.set()
+       sns.heatmap(corrs, cmap='coolwarm')
+Created a heatmap of the regions to compare corelations between the number of adults on disability.
+
+5.)   lm = LinearRegression()
+      lm.fit(X, y)
+      print('Estimated intercept coefficient: {}'.format(lm.intercept_))
+Built a linear regression model used to find the best coeffiecents to use as predictors.
+
+6.)   .fit(X_train, y_train)
+      predicted=lm.predict(X_test)
+      print('R^2 of linear regression test: ',lm.score(X_test,y_test))
+After selecting coeffiecents, they were enterd into a new model to predict what the disability rate would be.
